@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "c4e24f62-a58d-4f3d-889c-f0ed054dddcd",
+		"name": "Safeboda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Promo Codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localUrl}}/promo-code",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"promo-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Active Promo Codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localUrl}}/promo-code?active",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"promo-code"
+					],
+					"query": [
+						{
+							"key": "active",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate Promo Code",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/promo-code/66",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"promo-code",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Promo Code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"promo_code\": \"safeboda\",\r\n    \"max_rides\": 4,\r\n    \"radius_longitude\": \"3.350000\",\r\n    \"radius_latitude\": \"6.500000\",\r\n    \"expiry_date\": \"2022-05-12\",\r\n    \"event_id\": 52\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/promo-code",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"promo-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Promo Code Radius",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"radius\": 600\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/radius/promo-code/66",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"radius",
+						"promo-code",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Promo Code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"promo_code\": \"265\",\r\n    \"pick_up\": \"mende, maryland\",\r\n    \"pick_up_latitude\": \"6.5764\",\r\n    \"pick_up_longitude\": \"3.3653\",\r\n    \"destination\": \"stanbic bank maryland\",\r\n    \"destination_latitude\": \"6.5726391\",\r\n    \"destination_longitude\": \"3.3640866\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/promo",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"promo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localUrl",
+			"value": "localhost:8000/api",
+			"type": "default"
+		}
+	]
+}
